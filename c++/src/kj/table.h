@@ -119,8 +119,8 @@ public:
   // its backing array whenever more space is needed. Reserving in advance avoids redundantly
   // re-allocating as the table grows.
 
-  size_t size();
-  size_t capacity();
+  size_t size() const;
+  size_t capacity() const;
 
   void clear();
 
@@ -456,7 +456,7 @@ void Table<Row, Indexes...>::reserve(size_t size) {
 }
 
 template <typename Row, typename... Indexes>
-size_t Table<Row, Indexes...>::size() {
+size_t Table<Row, Indexes...>::size() const {
   return rows.size();
 }
 template <typename Row, typename... Indexes>
@@ -465,7 +465,7 @@ void Table<Row, Indexes...>::clear() {
   rows.clear();
 }
 template <typename Row, typename... Indexes>
-size_t Table<Row, Indexes...>::capacity() {
+size_t Table<Row, Indexes...>::capacity() const {
   return rows.capacity();
 }
 
